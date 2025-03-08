@@ -1,8 +1,8 @@
 {
-	"name": "amx-netlinx",
-	"displayName": "AMX Netlinx",
-	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
-	"version": "0.6.1",
+	"name": "vscode-amx-netlinx",
+	"displayName": "AMX NetLinx",
+	"description": "AMX NetLinx language support for VS Code",
+	"version": "0.1.0",
 	"publisher": "sentry07",
 	"icon": "netlinx.png",
 	"repository": {
@@ -11,18 +11,15 @@
 	},
 	"license": "GPL-3.0",
 	"engines": {
-		"vscode": "^1.74.0"
+		"vscode": "^1.60.0"
 	},
 	"categories": [
-		"Programming Languages",
-		"Snippets",
-		"Formatters"
+		"Programming Languages"
 	],
 	"activationEvents": [
-		"onLanguage:netlinx-source",
-		"onLanguage:netlinx-library"
+		"onLanguage:netlinx"
 	],
-	"main": "./out/extension.js",
+	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -50,197 +47,26 @@
 				"title": "Open Global Module Folder in Workspace"
 			}
 		],
-		"configuration": [
-			{
-				"title": "Netlinx",
-				"properties": {
-					"netlinx.compilerLocation": {
-						"type": "string",
-						"default": "C:\\Program Files (x86)\\Common Files\\AMXShare\\COM\\NLRC.exe",
-						"description": "Location of the Netlinx compiler. Please use double \\\\ for the path."
-					},
-					"netlinx.transferLocation": {
-						"type": "string",
-						"default": "C:\\Program Files (x86)\\AMX Control Disc\\FileTransfer 2\\FileTransfer2.exe",
-						"description": "Location of the Netlinx File Transfer utility"
-					},
-					"netlinx.diagLocation": {
-						"type": "string",
-						"default": "C:\\Program Files (x86)\\AMX Control Disc\\NetLinx Diagnostics\\NlDiagsPgm.exe",
-						"description": "Location of the Netlinx Diagnostics utility"
-					},
-					"netlinx.helpLocation": {
-						"type": "string",
-						"default": "C:\\Program Files (x86)\\AMX Control Disc\\NetLinx Studio 4\\Netlinx-Keywords.chm",
-						"description": "Location of the Netlinx Help reference"
-					},
-					"netlinx.terminalLocation": {
-						"type": "string",
-						"default": "C:\\WINDOWS\\System32\\cmd.exe",
-						"description": "Location of the default windows cmd.exe"
-					},
-					"netlinx.includesLocation": {
-						"type": "string",
-						"default": "",
-						"description": "Location of your global Netlinx includes folder for compiling. Leave blank if none."
-					},
-					"netlinx.librariesLocation": {
-						"type": "string",
-						"default": "",
-						"description": "Location of your global Netlinx libraries folder for compiling. Leave blank if none."
-					},
-					"netlinx.modulesLocation": {
-						"type": "string",
-						"default": "",
-						"description": "Location of your global Netlinx modules folder for compiling. Leave blank if none."
-					}
+		"configuration": {
+			"title": "AMX NetLinx",
+			"properties": {
+				"amx-netlinx.enableAutoReload": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically reload VS Code window when the syntax file changes"
 				}
 			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"command": "extension.netlinx_help",
-					"group": "navigation@1",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_help",
-					"group": "navigation@1",
-					"when": "resourceLangId == netlinx-library"
-				},
-				{
-					"command": "extension.netlinx_diag",
-					"group": "navigation@2",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_diag",
-					"group": "navigation@2",
-					"when": "resourceLangId == netlinx-library"
-				},
-				{
-					"command": "extension.netlinx_transfer",
-					"group": "navigation@3",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_transfer",
-					"group": "navigation@3",
-					"when": "resourceLangId == netlinx-library"
-				},
-				{
-					"command": "extension.netlinx_openincludefolder",
-					"group": "z_commands@1",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_openincludefolder",
-					"group": "z_commands@1",
-					"when": "resourceLangId == netlinx-library"
-				},
-				{
-					"command": "extension.netlinx_openlibraryfolder",
-					"group": "z_commands@2",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_openlibraryfolder",
-					"group": "z_commands@2",
-					"when": "resourceLangId == netlinx-library"
-				},
-				{
-					"command": "extension.netlinx_openmodulefolder",
-					"group": "z_commands@3",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_openmodulefolder",
-					"group": "z_commands@3",
-					"when": "resourceLangId == netlinx-library"
-				}
-			]
 		},
-		"keybindings": [
-			{
-				"command": "extension.netlinx_openmodulefolder",
-				"key": "ctrl+shift+f7",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_openmodulefolder",
-				"key": "ctrl+shift+f7",
-				"when": "resourceLangId == netlinx-library"
-			},
-			{
-				"command": "extension.netlinx_openlibraryfolder",
-				"key": "ctrl+shift+f6",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_openlibraryfolder",
-				"key": "ctrl+shift+f6",
-				"when": "resourceLangId == netlinx-library"
-			},
-			{
-				"command": "extension.netlinx_openincludefolder",
-				"key": "ctrl+shift+f5",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_openincludefolder",
-				"key": "ctrl+shift+f5",
-				"when": "resourceLangId == netlinx-library"
-			},
-			{
-				"command": "extension.netlinx_transfer",
-				"key": "ctrl+shift+f4",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_transfer",
-				"key": "ctrl+shift+f4",
-				"when": "resourceLangId == netlinx-library"
-			},
-			{
-				"command": "extension.netlinx_diag",
-				"key": "ctrl+shift+f3",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_diag",
-				"key": "ctrl+shift+f3",
-				"when": "resourceLangId == netlinx-library"
-			},
-			{
-				"command": "extension.netlinx_help",
-				"key": "ctrl+shift+f1",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_help",
-				"key": "ctrl+shift+f1",
-				"when": "resourceLangId == netlinx-library"
-			}
-		],
 		"languages": [
 			{
-				"id": "netlinx-source",
+				"id": "netlinx",
 				"aliases": [
-					"AMX Netlinx Source"
+					"AMX NetLinx",
+					"netlinx"
 				],
 				"extensions": [
 					".axs",
-					".axi"
-				],
-				"configuration": "./language-configuration.json"
-			},
-			{
-				"id": "netlinx-library",
-				"aliases": [
-					"AMX Netlinx Library"
-				],
-				"extensions": [
+					".axi",
 					".axb",
 					".lib"
 				],
@@ -249,12 +75,7 @@
 		],
 		"grammars": [
 			{
-				"language": "netlinx-source",
-				"scopeName": "source.netlinx",
-				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
-			},
-			{
-				"language": "netlinx-library",
+				"language": "netlinx",
 				"scopeName": "source.netlinx",
 				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
 			}
@@ -318,21 +139,30 @@
 		}
 	},
 	"scripts": {
-			"vscode:prepublish": "npm run compile",
-			"compile": "tsc -p ./",
-			"watch": "tsc -watch -p ./",
-			"lint": "eslint src --ext ts",
-			"test": "node ./out/test/runTest.js"
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.6",
 		"@types/node": "^20.11.0",
 		"@types/vscode": "^1.74.0",
 		"@typescript-eslint/eslint-plugin": "^6.18.1",
-		"@typescript-eslint/parser": "^6.18.1",
+		"@typescript-eslint/parser": "^6.18.1",,
 		"eslint": "^8.56.0",
 		"glob": "^10.3.10",
 		"mocha": "^10.2.0",
+		"typescript": "^5.3.3",
+		"@vscode/vsce": "^2.23.0",
+	},
+	"__metadata": {
+		"id": "sentry07.amx-netlinx",,
+		"publisherId": "sentry07",{
+		"publisherDisplayName": "Eric Walters"	"command": "extension.netlinx_openmodulefolder",
+	}ommands@3",
+}	"when": "resourceLangId == netlinx-source"
 		"typescript": "^5.3.3",
 		"@vscode/vsce": "^2.23.0"
 	},

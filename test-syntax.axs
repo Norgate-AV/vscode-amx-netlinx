@@ -21,16 +21,34 @@ DEFINE_VARIABLE
 VOLATILE INTEGER nCounter
 CHAR cBuffer[100]
 
-define_function
+define_function char SomeOtherFunction5(INTEGER param1, CHAR param2[])
+{
+	STACK_VAR CHAR result[100]
+	
+	IF (param1 > 5 AND param1 < 10)
+	{
+		result = "Parameter is between 5 and 10"
+	}
+	ELSE
+	{
+		result = "Parameter is out of range"
+	}
+	
+	RETURN result
+}
 
 // Function without return type
 DEFINE_FUNCTION TestFunction1()
 {
-	STACK_VAR INTEGER local_var
-	local_var = 10
+	STACK_VAR INTEGER var
+	local_var CHAR str[100]
+	var = 10
+
+	// Test variable highlighting
+	str = 'Test string'
 	
 	// Test function call highlighting
-	SomeOtherFunction(local_var, 'Test string')
+	SomeOtherFunction(var, str)
 }
 
 // Function with return type
@@ -52,6 +70,7 @@ DEFINE_FUNCTION CHAR[100] TestFunction2(INTEGER param1, CHAR param2[])
 
 // Event handlers
 DEFINE_EVENT
+
 DATA_EVENT[dvTP]
 {
 	ONLINE:

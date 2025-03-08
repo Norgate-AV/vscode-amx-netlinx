@@ -14,6 +14,12 @@
       "include": "#comment_lines"
     },
     {
+      "include": "#function_calls"
+    },
+    {
+      "include": "#function_parameters"
+    },
+    {
       "include": "#constant_numerics"
     },
     {
@@ -68,7 +74,7 @@
           "match": "[\\d]{1,3}[.][\\d]{1,3}[.][\\d]{1,3}[.][\\d]{1,3}"
         },
         {
-          "name": "keyword.other.netlinx",
+          "name": "constant.other.device.netlinx",
           "match": "([0-9]{1,5}:[0-9]{1,5}:[0-9]{1,5})"
         },
         {
@@ -106,11 +112,11 @@
         },
         {
           "name": "constant.netlinx_axi",
-          "match": "(?i)\\b(TIMELINE_ONCE|TIMELINE_REPEAT|TIMELINE_ABSOLUTE|TIMELINE_RELATIVE)\\b"
+          "match": "(?i)\\b(SOURCE_TYPE_NO_ADDRESS|SOURCE_TYPE_NEURON_ID|SOURCE_TYPE_IP_ADDRESS|SOURCE_TYPE_AXLINK|SOURCE_TYPE_NEURON_SUBNODE_ICSP|SOURCE_TYPE_NEURON_SUBNODE_PL|SOURCE_TYPE_IP_SOCKET_ADDRESS|SOURCE_TYPE_RS232|SOURCE_TYPE_INTERNAL|SOURCE_TYPE_MAC_ADDRESS|SOURCE_TYPE_IPv4_PORT|SOURCE_TYPE_IPv4_PORT_MAC_ADDRESS)\\b"
         },
         {
           "name": "constant.netlinx_axi",
-          "match": "(?i)\\b(SOURCE_TYPE_NO_ADDRESS|SOURCE_TYPE_NEURON_ID|SOURCE_TYPE_IP_ADDRESS|SOURCE_TYPE_AXLINK|SOURCE_TYPE_NEURON_SUBNODE_ICSP|SOURCE_TYPE_NEURON_SUBNODE_PL|SOURCE_TYPE_IP_SOCKET_ADDRESS|SOURCE_TYPE_RS232|SOURCE_TYPE_INTERNAL|SOURCE_TYPE_MAC_ADDRESS|SOURCE_TYPE_IPv4_PORT|SOURCE_TYPE_IPv4_PORT_MAC_ADDRESS)\\b"
+          "match": "(?i)\\b(TIMELINE_ONCE|TIMELINE_REPEAT|TIMELINE_ABSOLUTE|TIMELINE_RELATIVE)\\b"
         },
         {
           "name": "constant.netlinx_axi",
@@ -126,11 +132,11 @@
         },
         {
           "name": "constant.netlinx_axi",
-          "match": "(?i)\\b(XML_ENCODE_TYPES|XML_ENCODE_CHAR_AS_LIST|XML_ENCODE_LE|XML_DECODE_TYPES|XML_DECODE_NO_PRESERVE)\\b"
+          "match": "(?i)\\b(DUET_DEV_TYPE_DISPLAY_DEVICE|DUET_DEV_TYPE_RFIDSYSTEM_DEVICE|DUET_DEV_TYPE_LIGHTSYSTEM_DEVICE|DUET_DEV_TYPE_IO_DEVICE|DUET_DEV_TYPE_RELAY_DEVICE|DUET_DEV_TYPE_UPS|DUET_DEV_TYPE_AMPLIFIER|DUET_DEV_TYPE_AUDIO_CONFERENCER|DUET_DEV_TYPE_AUDIO_MIXER|DUET_DEV_TYPE_AUDIO_PROCESSOR|DUET_DEV_TYPE_AUDIO_TUNER_DEVICE|DUET_DEV_TYPE_CAMERA|DUET_DEV_TYPE_DIGITAL_MEDIA_ENCODER|DUET_DEV_TYPE_DIGITAL_MEDIA_DECODER|DUET_DEV_TYPE_DIGITAL_MEDIA_SERVER|DUET_DEV_TYPE_DSS|DUET_DEV_TYPE_DVR|DUET_DEV_TYPE_DISC_DEVICE|DUET_DEV_TYPE_DOCUMENT_CAMERA|DUET_DEV_TYPE_AUDIO_TAPE|DUET_DEV_TYPE_HVAC|DUET_DEV_TYPE_KEYPAD|DUET_DEV_TYPE_LIGHT|DUET_DEV_TYPE_MONITOR|DUET_DEV_TYPE_MOTOR|DUET_DEV_TYPE_MULTI_WINDOW|DUET_DEV_TYPE_POOL_SPA|DUET_DEV_TYPE_PREAMP_SURROUND_SOUND_PROCESSOR|DUET_DEV_TYPE_RECEIVER|DUET_DEV_TYPE_SECURITY_SYSTEM|DUET_DEV_TYPE_SENSOR_DEVICE|DUET_DEV_TYPE_SETTOP_BOX|DUET_DEV_TYPE_SLIDE_PROJECTOR|DUET_DEV_TYPE_SWITCHER|DUET_DEV_TYPE_TEXT_KEYPAD|DUET_DEV_TYPE_TV|DUET_DEV_TYPE_UTILITY|DUET_DEV_TYPE_VCR|DUET_DEV_TYPE_VIDEO_CONFERENCER|DUET_DEV_TYPE_VIDEO_PROCESSOR|DUET_DEV_TYPE_VIDEO_PROJECTOR|DUET_DEV_TYPE_VIDEO_WALL|DUET_DEV_TYPE_VOLUME_CONTROLLER|DUET_DEV_TYPE_WEATHER)\\b"
         },
         {
           "name": "constant.netlinx_axi",
-          "match": "(?i)\\b(DUET_DEV_TYPE_DISPLAY_DEVICE|DUET_DEV_TYPE_RFIDSYSTEM_DEVICE|DUET_DEV_TYPE_LIGHTSYSTEM_DEVICE|DUET_DEV_TYPE_IO_DEVICE|DUET_DEV_TYPE_RELAY_DEVICE|DUET_DEV_TYPE_UPS|DUET_DEV_TYPE_AMPLIFIER|DUET_DEV_TYPE_AUDIO_CONFERENCER|DUET_DEV_TYPE_AUDIO_MIXER|DUET_DEV_TYPE_AUDIO_PROCESSOR|DUET_DEV_TYPE_AUDIO_TUNER_DEVICE|DUET_DEV_TYPE_CAMERA|DUET_DEV_TYPE_DIGITAL_MEDIA_ENCODER|DUET_DEV_TYPE_DIGITAL_MEDIA_DECODER|DUET_DEV_TYPE_DIGITAL_MEDIA_SERVER|DUET_DEV_TYPE_DSS|DUET_DEV_TYPE_DVR|DUET_DEV_TYPE_DISC_DEVICE|DUET_DEV_TYPE_DOCUMENT_CAMERA|DUET_DEV_TYPE_AUDIO_TAPE|DUET_DEV_TYPE_HVAC|DUET_DEV_TYPE_KEYPAD|DUET_DEV_TYPE_LIGHT|DUET_DEV_TYPE_MONITOR|DUET_DEV_TYPE_MOTOR|DUET_DEV_TYPE_MULTI_WINDOW|DUET_DEV_TYPE_POOL_SPA|DUET_DEV_TYPE_PREAMP_SURROUND_SOUND_PROCESSOR|DUET_DEV_TYPE_RECEIVER|DUET_DEV_TYPE_SECURITY_SYSTEM|DUET_DEV_TYPE_SENSOR_DEVICE|DUET_DEV_TYPE_SETTOP_BOX|DUET_DEV_TYPE_SLIDE_PROJECTOR|DUET_DEV_TYPE_SWITCHER|DUET_DEV_TYPE_TEXT_KEYPAD|DUET_DEV_TYPE_TV|DUET_DEV_TYPE_UTILITY|DUET_DEV_TYPE_VCR|DUET_DEV_TYPE_VIDEO_CONFERENCER|DUET_DEV_TYPE_VIDEO_PROCESSOR|DUET_DEV_TYPE_VIDEO_PROJECTOR|DUET_DEV_TYPE_VIDEO_WALL|DUET_DEV_TYPE_VOLUME_CONTROLLER|DUET_DEV_TYPE_WEATHER)\\b"
+          "match": "(?i)\\b(XML_ENCODE_TYPES|XML_ENCODE_CHAR_AS_LIST|XML_ENCODE_LE|XML_DECODE_TYPES|XML_DECODE_NO_PRESERVE)\\b"
         },
         {
           "name": "constant.netlinx_axi",
@@ -208,6 +214,10 @@
         {
           "name": "entity.name.section.netlinx",
           "match": "(?i)\\b(DEFINE_EVENT|DEFINE_TYPE)\\b"
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)\\b(DEFINE_FUNCTION)\\b"
         },
         {
           "name": "meta.function.netlinx",
@@ -490,7 +500,7 @@
         {
           "name": "meta.variable.netlinx",
           "comment": "Full variable or constant definition line",
-          "match": "(?i)^\\s*\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\b\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)\\b(?:[ \\[])?\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
+          "match": "(?i)^\\s*\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR|PARAMETER)\\b\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)\\b(?:[ \\[])?\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
           "captures": {
             "1": {
               "name": "storage.modifier.netlinx"
@@ -500,6 +510,19 @@
             },
             "3": {
               "name": "variable.other.netlinx"
+            }
+          }
+        },
+        {
+          "name": "meta.variable.parameter.netlinx",
+          "comment": "Function parameters",
+          "match": "(?i)\\b(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)\\b\\s+([\\w]+)\\b",
+          "captures": {
+            "1": {
+              "name": "storage.type.intrinsic.netlinx"
+            },
+            "2": {
+              "name": "variable.parameter.netlinx"
             }
           }
         }
@@ -512,6 +535,11 @@
           "name": "string.quoted.single.netlinx",
           "begin": "'",
           "end": "'"
+        },
+        {
+          "name": "string.quoted.double.netlinx",
+          "begin": "\"",
+          "end": "\""
         }
       ]
     },
@@ -538,6 +566,51 @@
         {
           "name": "variable.other.netlinx_axi",
           "match": "(?i)\\b(PUSH_DEVICE|PUSH_CHANNEL|PUSH_DEVCHAN|RELEASE_DEVICE|RELEASE_CHANNEL|RELEASE_DEVCHAN|MASTER_SLOT|DAY|DATE|TIME|MASTER_SN|SYSTEM_NUMBER|LDATE|BUTTON|DV_CHANNEL|DATA|LEVEL|TIMELINE|CHANNEL|CUSTOM)\\b"
+        }
+      ]
+    },
+    "function_calls": {
+      "comment": "User-defined function calls",
+      "patterns": [
+        {
+          "name": "meta.function-call.netlinx",
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.netlinx"
+            }
+          }
+        }
+      ]
+    },
+    "function_parameters": {
+      "comment": "Function parameters",
+      "patterns": [
+        {
+          "name": "meta.function.parameters.netlinx",
+          "begin": "\\(",
+          "end": "\\)",
+          "patterns": [
+            {
+              "include": "#storage_netlinx"
+            },
+            {
+              "name": "variable.parameter.netlinx",
+              "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+            },
+            {
+              "include": "#constant_numerics"
+            },
+            {
+              "include": "#string_netlinx"
+            },
+            {
+              "include": "#constant_netlinx_axi"
+            },
+            {
+              "include": "#keyword_operators"
+            }
+          ]
         }
       ]
     }
